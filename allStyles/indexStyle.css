@@ -127,3 +127,22 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+@media (max-width: 1200px){
+	#taskBar{
+		background-image: url("../assets/taskBarSmall.png");
+	}
+}
+@media (max-width: 600px){
+	#taskBar{
+		display: none;
+	}
+	.screen1{
+		background-image: url("../assets/phoneBg.jpg");
+	}
+	#logoIcon{
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    transform: none;
+	}
+}
