@@ -3,25 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="allStyles.css">
+        <link rel="stylesheet" href="allStyles/indexStyle.css">
         <!--get the correct fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
         <title>Blank</title>
-        <script src="allScripts.js" defer></script>
+        <script src="allScripts/indexScript.js" defer></script>
     </head>
     <body>
-        <header>
-            <img src="assets/logo.png" alt="logo">
-            <h1>Title</h1>
-        </header>
-        <main>
-            <h1>Game Rules</h1>
-            <p>Explanation</p>
-            <p><a href="pages/intro.html">Link to intro page</a></p>
-        </main>
-        <footer>Made by Illia Yevseienkov and Xyrille Magno.</footer>
+        <!--windows simulation-->
+		<div class="screen1">
+			<div class="icon" id="logoIcon">
+				<img src="assets/smallerLogo.png" alt="logo">
+				CLICK_ME.exe
+			</div>
+            <div class="icon" id="refIcon">
+                <img src="assets/hollowknightSmall.jpg" alt="reference">
+                Who made this?
+            </div>
+
+            <div class="icon" id="hornetIcon">
+                <img src="assets/hornetSmall.jpg" alt="reference">
+                SilkSong.exe
+            </div>
+			
+			<div id="console">
+				<p id="consoleText"></p>
+			</div>
+
+            <!--image at the bottom-->
+			<div id="taskBar"></div>
+		</div>
+
+        <!--black screen with instructions-->
+		<div class="screen2">
+            <!-- use a div to make a moving bg -->
+            <div id='movingBg'></div>
+			<p id ="inst"></p>
+		</div>
     </body>
 </html>
