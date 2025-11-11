@@ -1,0 +1,14 @@
+body{
+	font: normal 400 "Press Start 2P", system-ui;
+    color: white;	
+
+	margin: 0;
+	
+}
+main {
+    background-image: url(../assets/redBroken.jpg);
+    height: 500px;
+}
+#dialogue {
+    background-color: black;
+}
