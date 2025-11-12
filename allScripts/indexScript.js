@@ -13,7 +13,7 @@ taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
 //events for hornetIcon
 const hornetIcon = document.querySelector('#hornetIcon');
 hornetIcon.addEventListener('click', (e) => select(e, hornetIcon));
-hornetIcon.addEventListener('dblclick', () => alert("SHAW !"));
+hornetIcon.addEventListener('dblclick', showShaw);
 
 //events for refIcon
 const refIcon = document.querySelector('#refIcon');
@@ -70,7 +70,7 @@ const screen1 = document.querySelector('.screen1');
 const screen2 = document.querySelector('.screen2');
 const instTag = document.querySelector('#inst');
 const inst = `
-WARNING FLASHING LIGHTS AND SENSETIVE CONTENT
+WARNING FLASHING LIGHTS AND SENSITIVE CONTENT
 > rule -01
 DO NOT REFRESH.  
 > rule -02
@@ -96,7 +96,7 @@ function select(event, tag){
 	event.stopPropagation(); //stop deselect event
 }
 
-function deselect(tags){
+function deselect(event, tags){
 	for(let i=0; i < tags.length; i++){
 		tags[i].classList.remove('selected');
 	}
@@ -165,7 +165,8 @@ mimic a typing animation.
 */
 function changeScreen(){
 	screen1.style.display = 'none';
-	screen2.style.display = 'block';
+	screen2.style.display = 'flex';
+	document.body.style.backgroundColor = "black";
 
 	printText(instTag, inst);
 }
@@ -187,4 +188,8 @@ function printText(tag, text){
 
 		tag.appendChild(playLink);
 	}
+}
+
+function showShaw(){
+	
 }
