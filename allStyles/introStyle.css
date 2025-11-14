@@ -5,10 +5,14 @@ body{
 	margin: 0;
 	
 }
-main {
+#screen {
     background-image: url(../assets/redBroken.jpg);
     height: 500px;
 }
 #dialogue {
     background-color: black;
+    height: 145px;
+}
+p {
+    font-size: 40pt;
 }
