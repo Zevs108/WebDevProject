@@ -1,6 +1,7 @@
 'use strict';
 //Making the dialogue on the bottom of the screen change
-const dialogue = document.querySelector('p');
+const dialogue = document.getElementById('words');
+const links = document.getElementById('continue');
 const startingDialogue = [
   'starting first sentence',
   'starting second sentence',
