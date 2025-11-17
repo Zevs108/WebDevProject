@@ -1,0 +1,50 @@
+body{
+	font: normal 400 "Press Start 2P", system-ui;
+    background-color: black;	
+    color: white;
+	margin: 0;
+	
+}
+#screen {
+    background-image: url(../assets/redBroken.jpg);
+    height: 500px;
+}
+#dialogue {
+    background-color: black;
+    height: 145px;
+}
+p {
+    font-size: 40pt;
+}
+.continue {
+    display: none;
+}
+/*header {
+    display: inline-block; 
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #333; 
+    animation: 
+        typing 4s steps(25) forwards, 
+        blink-cursor 0.4s step-end infinite alternate;
+}*/
+h1 {
+    width: 100px;
+    display: inline-block; 
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #333; 
+    animation: 
+        typing 4s steps(25) forwards, 
+        blink-cursor 0.4s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-cursor {
+    from, to { border-right-color: black; }
+    50% { border-right-color: white; }
+}
