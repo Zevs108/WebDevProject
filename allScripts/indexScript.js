@@ -177,7 +177,7 @@ function printText(tag, text){
 	if(i < text.length){
 		tag.textContent += text[i];
 		i++;
-		setTimeout(() => printText(tag, text), 80); //recursive call with timeout
+		setTimeout(() => printText(tag, text), 10); //recursive call with timeout
 	}
 	//add text with a link at the end 
 	else{
