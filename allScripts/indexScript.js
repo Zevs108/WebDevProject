@@ -1,10 +1,8 @@
 "use strict";
 // events for logoIcon
 const logoIcon = document.querySelector("#logoIcon");
-logoIcon.addEventListener('click', (e) => select(e, logoIcon));
+logoIcon.addEventListener('click', (event) => select(logoIcon));
 logoIcon.addEventListener('dblclick', handleConsole);
-
-const consoleTag = document.querySelector('#console');
 
 //event for task bar
 const taskBar = document.querySelector('#taskBar');
@@ -12,22 +10,20 @@ taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
 
 //events for hornetIcon
 const hornetIcon = document.querySelector('#hornetIcon');
-hornetIcon.addEventListener('click', (e) => select(e, hornetIcon));
-// hornetIcon.addEventListener('dblclick', showShaw);
+hornetIcon.addEventListener('click', (event) => select(hornetIcon));
+hornetIcon.addEventListener('dblclick', () => alert("something"));
 
 //events for refIcon
 const refIcon = document.querySelector('#refIcon');
-refIcon.addEventListener('click', (e) => select(e, refIcon));
+refIcon.addEventListener('click', (event) => select(refIcon));
 refIcon.addEventListener('dblclick', () => alert("Made by Illia Yevseienkov and Xyrille Magno"));
 
 //deselect event for all icons
 const allIcons = [logoIcon, hornetIcon, refIcon];
-const body = document.querySelector('body');
-body.addEventListener('click', () => deselect(allIcons)); 
+document.body.addEventListener('click', () => deselect(allIcons)); 
 
-/*
-Terminal text to print on the screen
-*/
+
+const consoleTag = document.querySelector('#console');
 const consoleTextTag = document.querySelector('#consoleText');
 const terminalText = [
   '[BOOT]   Initializing core modules... ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n',
@@ -87,12 +83,12 @@ COMPLETE THE PROGRAM.
 `;
 
 
-function select(event, tag){
+function select(tag){
 	tag.classList.add('selected');
-	event.stopPropagation(); //stop deselect event
+	event.stopPropagation();
 }
 
-function deselect(event, tags){
+function deselect(tags){
 	for(let i=0; i < tags.length; i++){
 		tags[i].classList.remove('selected');
 	}
