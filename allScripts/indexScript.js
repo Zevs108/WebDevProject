@@ -16,7 +16,7 @@ hornetIcon.addEventListener('dblclick', () => alert("something"));
 //events for refIcon
 const refIcon = document.querySelector('#refIcon');
 refIcon.addEventListener('click', (event) => select(refIcon));
-refIcon.addEventListener('dblclick', () => alert("Made by Illia Yevseienkov and Xyrille Magno"));
+refIcon.addEventListener('dblclick', handleSugg);
 
 //deselect event for all icons
 const allIcons = [logoIcon, hornetIcon, refIcon];
@@ -94,6 +94,32 @@ function deselect(tags){
 	}
 }
 
+
+const formTag = document.getElementById('form');
+const sendBtn = document.getElementById('send');
+const closeBtn = document.getElementById('close');
+sendBtn.addEventListener('click', checkEmail);
+closeBtn.addEventListener('click', () => formTag.style.display="none");
+
+function checkEmail(event){
+  const outputTag = document.getElementById('output');
+
+  const emailInput = document.querySelector('input[name="email"]');
+  const email = emailInput.value.split('@');
+
+  const nameInput = document.querySelector('input[name="name"]');
+  const textArea = document.querySelector('textarea');
+
+  if(email[1] === "dawsoncollege.qc.ca"){
+    outputTag.textContent = `Thank you ${nameInput.value} for suggesting ${textArea.value}`;
+  } else{
+    outputTag.textContent = "Suggestions from Dawsonites only!";
+  }
+}
+
+function handleSugg(event){
+  formTag.style.display = "block";
+}
 
 function handleConsole(event){
 	body.style.cursor = 'wait';

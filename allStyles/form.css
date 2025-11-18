@@ -1,0 +1,50 @@
+ul{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+li{
+	list-style-type: none;
+	margin-top: 10px;
+}
+
+button{
+	font-size: 1.5rem;
+	color: white;
+
+	width: fit-content;
+	margin-top: 10px;
+
+	background-color: black;
+	border: 5px solid white;
+
+	transition: background-color 0.5s, border-color 0.2s, color 0.2s;
+}
+
+button:hover{
+	background-color: white;
+	border-color: black;
+	color: black;
+}
+
+#suggText{
+	width: 20vw;
+	height: 10vh;
+}
+
+#form{
+	display: none;
+	background-color: black;
+	border: 5px solid white;
+
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+
+	width: 30vw;
+	height: 40vh;
+
+	overflow: scroll;
+}
