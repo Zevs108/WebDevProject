@@ -2,7 +2,7 @@
 // events for logoIcon
 const logoIcon = document.querySelector("#logoIcon");
 logoIcon.addEventListener('click', (e) => select(e, logoIcon));
-logoIcon.addEventListener('dblclick', waitShowConsole);
+logoIcon.addEventListener('dblclick', handleConsole);
 
 const consoleTag = document.querySelector('#console');
 
@@ -13,7 +13,7 @@ taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
 //events for hornetIcon
 const hornetIcon = document.querySelector('#hornetIcon');
 hornetIcon.addEventListener('click', (e) => select(e, hornetIcon));
-hornetIcon.addEventListener('dblclick', showShaw);
+// hornetIcon.addEventListener('dblclick', showShaw);
 
 //events for refIcon
 const refIcon = document.querySelector('#refIcon');
@@ -86,11 +86,7 @@ USE FULL SCREEN MODE (F11)
 COMPLETE THE PROGRAM.  
 `;
 
-/*
-Functions select and deselect add and remove the .selected class
-repectively to mimic the windows desktop. Called using an event
-listener on the #logoIcon and body elements.
-*/
+
 function select(event, tag){
 	tag.classList.add('selected');
 	event.stopPropagation(); //stop deselect event
@@ -103,89 +99,44 @@ function deselect(event, tags){
 }
 
 
-/*
-Triggers on a double click on the #logoIcon, changes the cursor
-and uses setTimeout to wait before further execution.
-*/
-function waitShowConsole(event){
-	body.style.cursor = 'wait'; //change cursor
-	
-	//wait for 5 seconds
+function handleConsole(event){
+	body.style.cursor = 'wait';
 	setTimeout(showConsole, 5000);
 }
 
-/*
-Called by setTimeout in waitShowConsole function, changes the cursor
-back to default, shows the hidden consoleTag element and calls printText
-*/
+
 function showConsole(){
 	consoleTag.style.display = "block";
-	body.style.cursor = 'default';
-	// printText(consoleTextTag, terminalText);
-	printLines(consoleTextTag, terminalText);
+	document.body.style.cursor = 'default';
+
+	printLines(consoleTextTag, terminalText)
+		.then(() => setTimeout(changeScreen, 1000));
 }
 
 
-/*
-Takes in an html tag (object) where the text is shown and the text to show (Array of Strings)
-Uses a recursive loop that itirates through each string in the array and adds it to the textContent 
-of the element, calls itself with a setTimeout to mimic a typing animation.
-*/
-let k = 0;
-function printLines(tag, text){
-	if (k < text.length){
-		tag.textContent += text[k];
-		scrollDown(tag);
-		k++;
+async function printLines(tag, text){
+	for(let i=0; i<text.length; i++){
+		tag.textContent += text[i];
+		tag.scrollTop = tag.scrollHeight;
 
-		setTimeout(() => printLines(tag, text), 70); //recursive call
-	} else{
-		setTimeout(() => changeScreen(), 1000); //change to screen2 after the dot animation
+		await new Promise(resolve => setTimeout(resolve, 50));
 	}
 }
 
-/*
-Scrolls down when the element has text in overflow
-by setting the current position to the total overflow height.
-*/
-function scrollDown(tag){
-	tag.scrollTop = tag.scrollHeight;
-}
 
-
-/*
-Takes in an html tag (object) where the text is shown and the text to show (String)
-Uses a recursive loop that itirates through each character in the String and 
-adds it to the textContent of the element, calls itself with a setTimeout to
-mimic a typing animation.
-*/
-
-/*
-
-*/
 function changeScreen(){
 	screen1.style.display = 'none';
 	screen2.style.display = 'flex';
 	document.body.style.backgroundColor = "black";
 
-	printText(instTag, inst);
+	printText(instTag, inst)
+		.then(() => instTag.insertAdjacentHTML("beforeend", `<a href="pages/intro.html" id="link"> >START GAME? </a>`));
 }
 
 // printText(instTag, inst);
-let i = 0;
-function printText(tag, text){
-	if(i < text.length){
+async function printText(tag, text){
+	for(let i=0; i<text.length;i++){
 		tag.textContent += text[i];
-		i++;
-		setTimeout(() => printText(tag, text), 10); //recursive call with timeout
-	}
-	//add text with a link at the end 
-	else{
-		//create a tag and set the attributes (href) and content (text)
-		const playLink = document.createElement('a');
-		playLink.href = 'pages/intro.html';
-		playLink.textContent = '>START GAME?'
-
-		tag.appendChild(playLink);
+		await new Promise(resolve => setTimeout(resolve, 20));
 	}
 }

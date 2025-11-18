@@ -65,6 +65,12 @@ body{
     left: 70%;
 }
 
+#link{
+	font-size: 2em;
+	color: white;
+	text-decoration: none;
+}
+
 #inst{
 	/*position in the middle*/
 	position: absolute;
