@@ -21,6 +21,19 @@ main{
 	justify-content: center;
 }
 
+
+div#introScreen{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	font-size: 3em;
+}
+div#gameScreen{
+	display: none;
+}
+
 div#image{
 	background-image: url(../assets/csLounge.png);
 	background-size: cover;

@@ -189,7 +189,3 @@ function printText(tag, text){
 		tag.appendChild(playLink);
 	}
 }
-
-function showShaw(){
-	
-}
