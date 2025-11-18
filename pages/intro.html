@@ -5,19 +5,33 @@
         <meta name="viewport" content="width=device-width">
         <title>Dawson HorrorStory</title>
         <link href="../allStyles/introStyle.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="../assets/logo.png">
         <script src="../allScripts/introScript.js" defer></script>
     </head>
     <body>
         <header>
-            <h1><span class="typewriter-text">Monday Day 1</span></h1>
+                <h1><span class="typewriter-text">Monday: Day 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Semester 1</span></h1>
         </header>
         <main>
             <div id="screen"></div>
             <div id="dialogue">
                 <p id="words">Blah blah blah </p>
+                <p id="reminder">(Click anywhere to continue)</p>
                 <p class="continue"><a href="open.html">Link to open page</a></p>
                 <p class="continue"><a href="ignore.html">Link to ignore page</a></p>
             </div>
         </main>
+        <footer>
+            <fieldset>
+                <label for="yes">Yes</label>
+                <input type="radio" id="yes" name="vote" value="Yes">
+                <label for="no">No</label>
+                <input type="radio" id="no" name="vote" value="No">
+                <label for="comments">Comments</label>
+                <input type="textarea" id="comments" name="vote">
+                <button id="voteBtn">Vote</button>
+                <h3></h3>
+            </fieldset>
+        </footer>
     </body>
 </html>
