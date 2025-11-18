@@ -13,29 +13,22 @@ body{
     background-color: black;
     height: 145px;
 }
-p {
+#words {
     font-size: 40pt;
+}
+#reminder {
+    color: gray;
 }
 .continue {
     display: none;
 }
-/*header {
-    display: inline-block; 
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #333; 
-    animation: 
-        typing 4s steps(25) forwards, 
-        blink-cursor 0.4s step-end infinite alternate;
-}*/
 h1 {
-    width: 100px;
     display: inline-block; 
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid #333; 
     animation: 
-        typing 4s steps(25) forwards, 
+        typing 2s steps(18) forwards, 
         blink-cursor 0.4s step-end infinite alternate;
 }
 
@@ -48,3 +41,16 @@ h1 {
     from, to { border-right-color: black; }
     50% { border-right-color: white; }
 }
+button {
+    width: 180px;
+    height: 50px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    align-items: start;
+}
+
