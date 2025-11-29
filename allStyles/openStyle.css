@@ -22,16 +22,13 @@ main{
 }
 
 
-div#introScreen{
+div#dayScreen{
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 
 	font-size: 3em;
-}
-div#gameScreen{
-	display: none;
 }
 
 div#image{
@@ -49,4 +46,25 @@ div#image{
 div#text{
 	padding: 50px;
 	font-size: 1.5rem;
+}
+
+#choice0, #choice1, #choice3{
+	display: none;
+}
+
+.btn {
+    padding: 10px 20px;
+
+    color: white;
+    background-color: #111;
+    border: 2px solid white;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #111;
 }
