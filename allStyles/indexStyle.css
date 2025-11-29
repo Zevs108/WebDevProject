@@ -1,7 +1,9 @@
-body{
+:root{
 	font: normal 10pt "Press Start 2P", system-ui;
     color: white;	
+}
 
+body{
 	margin: 0;
 	height: 100vh;
 }
@@ -68,9 +70,13 @@ body{
 }
 
 #link{
-	font-size: 2em;
+	font-size: 2rem;
 	color: white;
-	text-decoration: none;
+	text-decoration: underline;;
+}
+
+#link:hover{
+	color: blue;
 }
 
 #inst{
@@ -80,7 +86,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-size: 2em;
+    font-size: 2rem;
     white-space: pre-wrap;
 }
 

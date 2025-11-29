@@ -1,26 +1,10 @@
 "use strict";
-// events for logoIcon
+
 const logoIcon = document.querySelector("#logoIcon");
-logoIcon.addEventListener('click', (event) => select(logoIcon));
-logoIcon.addEventListener('dblclick', handleConsole);
-
-//event for task bar
 const taskBar = document.querySelector('#taskBar');
-taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
-
-//events for hornetIcon
 const hornetIcon = document.querySelector('#hornetIcon');
-hornetIcon.addEventListener('click', (event) => select(hornetIcon));
-hornetIcon.addEventListener('dblclick', () => alert("something"));
-
-//events for refIcon
 const refIcon = document.querySelector('#refIcon');
-refIcon.addEventListener('click', (event) => select(refIcon));
-refIcon.addEventListener('dblclick', handleSugg);
-
-//deselect event for all icons
 const allIcons = [logoIcon, hornetIcon, refIcon];
-document.body.addEventListener('click', () => deselect(allIcons)); 
 
 
 const consoleTag = document.querySelector('#console');
@@ -82,6 +66,15 @@ USE FULL SCREEN MODE (F11)
 COMPLETE THE PROGRAM.  
 `;
 
+//events used for the desktop interactivity
+logoIcon.addEventListener('click', (event) => select(logoIcon));
+logoIcon.addEventListener('dblclick', handleConsole);
+taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
+hornetIcon.addEventListener('click', (event) => select(hornetIcon));
+hornetIcon.addEventListener('dblclick', () => alert("Shaw !"));
+refIcon.addEventListener('click', (event) => select(refIcon));
+refIcon.addEventListener('dblclick', handleSugg);
+document.body.addEventListener('click', () => deselect(allIcons)); 
 
 function select(tag){
 	tag.classList.add('selected');
@@ -122,10 +115,9 @@ function handleSugg(event){
 }
 
 function handleConsole(event){
-	body.style.cursor = 'wait';
+	document.body.style.cursor = 'wait';
 	setTimeout(showConsole, 5000);
 }
-
 
 function showConsole(){
 	consoleTag.style.display = "block";
@@ -155,7 +147,6 @@ function changeScreen(){
 		.then(() => instTag.insertAdjacentHTML("beforeend", `<a href="pages/intro.html" id="link"> >START GAME? </a>`));
 }
 
-// printText(instTag, inst);
 async function printText(tag, text){
 	for(let i=0; i<text.length;i++){
 		tag.textContent += text[i];
