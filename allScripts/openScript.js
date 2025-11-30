@@ -4,69 +4,75 @@ const introTag = document.getElementById('introScreen');
 const screenTag = document.getElementById('gameScreen');
 
 const startSceneInfo = {
-	0 : {
+	'scene_1' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["What is happening? Is it off?"]
+		'text': ["What is happening? Is it off?"],
+		'nextScene': 'scene_2'
 		},
-	1 : {
+	'scene_2' : {
 		'img': "../assets/hornet.jpg", 
-		'text': ["Oh, it's rebooting.", "I guess I will just wait?"]
+		'text': ["Oh, it's rebooting.", "I guess I will just wait?"],
+		'nextScene': 'scene_3'
 		},
-	2 : {
+	'scene_3' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["Ok, that was weird.", "Maybe some prank?", "Whatever, I need to keep working on my assignement. Time to lock in."]
+		'text': ["Ok, that was weird.", "Maybe some prank?", "Whatever, I need to keep working on my assignement. Time to lock in."],
+		'nextScene': 'scene_4'
 		},
-	3 : {
+	'scene_4' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["6 hours later."]
+		'text': ["6 hours later."],
+		'nextScene': 'scene_5'
 		},
-	4 : {
+	'scene_5' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["I am going to die, it's time to go home..."]
+		'text': ["I am going to die, it's time to go home..."],
+		'nextScene': 'scene_6'
 		},
-	5 : {
+	'scene_6' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["I hate the 1 hour of metro"]
+		'text': ["I hate the 1 hour of metro"],
+		'nextScene': 'scene_7'
 		},
-	6 : {
+	'scene_7' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["FINALY, some sleep."]
+		'text': ["FINALY, some sleep."],
+		'nextScene': 'scene_8'
 		},
-	7 : {
+	'scene_8' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["I had a good dream.", "I can't quite remember it. Someone touching my hand, a smile, a good feeling. "]
+		'text': ["I had a good dream.", "I can't quite remember it. Someone touching my hand, a smile, a good feeling. "],
+		'nextScene': 'scene_9'
 		},
-	8 : {
+	'scene_9' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["I got 8 hours of sleep and still feel tired.", "What is wrong with me?"]
+		'text': ["I got 8 hours of sleep and still feel tired.", "What is wrong with me?"],
+		'nextScene': 'scene_10'
 		},
-	9 : {
+	'scene_10' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["you arrive at 6:50am.", "You leave your lunch as per usual and make your way to the lounge."]
+		'text': ["you arrive at 6:50am.", "You leave your lunch as per usual and make your way to the lounge."],
+		'nextScene': 'scene_11'
 		},
-	10 : {
+	'scene_11' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["Wait. Where is the door?", "Hello? What happened?"]
+		'text': ["Wait. Where is the door?", "Hello? What happened?"],
+		'nextScene': 'scene_12'
 		},
-	11 : {
+	'scene_12' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["Should I go to class?", "Maybe Daniel is there.", "I could ask him what happened."]
+		'text': ["Should I go to class?", "Maybe Daniel is there.", "I could ask him what happened."],
+		'nextScene': 'scene_13'
 		},
-	12 : {
+	'scene_13' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["Here is Daniel. Should I tell him about the missing lounge?"]
+		'text': ["Here is Daniel. Should I tell him about the missing lounge?"],
+		'nextScene': null
 		},
-	13 : {
+	'scene_14_YES' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["0OTHER TEXT IS HERE", "0AGAIN TEXT IS HERE"]
-		},
-	14 : {
-		'img': "../assets/hollowknight.jpg", 
-		'text': ["0OTHER TEXT IS HERE", "0AGAIN TEXT IS HERE"]
-		},
-	112 : {
-		'img': "../assets/hollowknight.jpg", 
-		'text': ["Hey Daniel ! Do you know what happened to the lounge?", 
+		'text': [
+			"Hey Daniel ! Do you know what happened to the lounge?", 
 			"What do you mean? What lounge?",
 			"The computer science lounge. The door is missing?",
 			"There was a computer science lounge? I didn't even know that.",
@@ -74,26 +80,15 @@ const startSceneInfo = {
 			"Yesterday ? I was here working on my compiler the whole day?",
 			"...",
 			"Is everything ok?",
-			"I guess. Maybe I am still sleeping. Well, I have my project due tomorrow, so time to get to work."]
+			"I guess. Maybe I am still sleeping. Well, I have my project due tomorrow, so time to get to work."],
+		'nextScene': 'scene_14_NO'
 		},
-	113 : {
+	'scene_14_NO' : {
 		'img': "../assets/hollowknight.jpg", 
-		'text': ["0O123123THER TEXT IS HERE", "0AGAIN TEXT IS HERE"]
-		},
-	114: {
-		'img': "../assets/hollowknight.jpg", 
-		'text': ["0OT123123HER TEXT IS HERE"]
+		'text': ["0OTHER TEXT IS HERE", "0AGAIN TEXT IS HERE"]
 		},
 }
 
-const choicesInfo = {
-	0 : null,
-	1 : null,
-	2 : null,
-	3 : null,
-	4 : null,
-	5 : null
-}
 // scene 4 + 8 -- black screen
 // after scene 8 -- new day screen
 // scene 13 -- choice buttons
@@ -101,7 +96,7 @@ const choicesInfo = {
 
 const textTag = document.getElementById('text');
 const imageTag = document.getElementById('image');
-let countScene = 0;
+let currentScene = 'scene_1';
 let countText = 0;
 let choiceCount = 0;
 
@@ -116,22 +111,28 @@ function progressGame(tag){
 	document.body.removeEventListener('click', clickHandler);
 
 	tag.textContent = "";
-	if (startSceneInfo[countScene]['text'][countText] === undefined){
-		countScene++; countText = 0;
-		imageTag.style.backgroundImage = `url(${startSceneInfo[countScene]['img']})`;
+	if (startSceneInfo[currentScene]['text'][countText] === undefined){
+		currentScene = startSceneInfo[currentScene]['nextScene']; countText = 0;
+		imageTag.style.backgroundImage = `url(${startSceneInfo[currentScene]['img']})`;
 	}
 
-	console.log(countScene);
+	console.log(currentScene);
 
-	printText(tag, startSceneInfo[countScene]['text'][countText])
+	printText(tag, startSceneInfo[currentScene]['text'][countText])
 		.then(checkForChoice)
 		.then(() => document.body.addEventListener('click', clickHandler)); countText++;
 }
 
 async function checkForChoice(){
-	if(countScene == 12 || countScene == 14) await getChoice();
+	if(currentScene === 'scene_13') await getChoice();
 }
 
+const choiceScenes = {
+	0: ['scene_14_YES', 'scene_14_NO'],
+	1: ['scene_14_YES', 'scene_14_NO'],
+	2: ['scene_14_YES', 'scene_14_NO'],
+	3: ['scene_14_YES', 'scene_14_NO'],
+}
 async function getChoice(){
     const choiceTag = document.getElementById('choice' + choiceCount);
     const btn1 = choiceTag.firstElementChild;
@@ -142,21 +143,16 @@ async function getChoice(){
     await new Promise(resolve => {
         choiceTag.addEventListener('click', (e) => {
 			if (e.target === btn1) {
-				choicesInfo[choiceCount] = true;
+				startSceneInfo[currentScene]['nextScene'] = choiceScenes[choiceCount][0];
 			} else if (e.target === btn2) {
-				choicesInfo[choiceCount] = false;
+				startSceneInfo[currentScene]['nextScene'] = choiceScenes[choiceCount][1];
 			}
 
 			resolve();
 		});
     });
 
-	changeSceneForChoice();
 	choiceTag.style.display = 'none'; choiceCount++;
-}
-
-function changeSceneForChoice(){
-	
 }
 
 
