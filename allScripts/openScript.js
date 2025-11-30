@@ -1,13 +1,12 @@
 "use strict";
-const introText = "Monday -- DAY 1";
-const introTag = document.getElementById('introScreen');
-const screenTag = document.getElementById('gameScreen');
 
+const screenTag = document.getElementById('gameScreen');
 const textTag = document.getElementById('text');
 const imageTag = document.getElementById('image');
 let currentScene = 'scene_1';
 let countText = 0;
 let choiceCount = 0;
+let textSpeed = 5;
 
 let startSceneInfo = {
   "scene_1": {
@@ -30,7 +29,7 @@ let startSceneInfo = {
     "nextScene": "scene_4"
   },
   "scene_4": {
-    "img": "../assets/hollowknight.jpg",
+    "img": "none",
     "text": ["6 hours later."],
     "nextScene": "scene_5"
   },
@@ -50,16 +49,19 @@ let startSceneInfo = {
     "nextScene": "scene_8"
   },
   "scene_8": {
-    "img": "../assets/hollowknight.jpg",
+    "img": "none",
     "text": [
+	  "Dream.",
+	  "I had a dream.",
       "I had a good dream.",
-      "I can't quite remember it. Someone touching my hand, a smile, a good feeling. "
+      "I can't quite remember it.",
+	  "It was important. I know it was."
     ],
     "nextScene": "scene_9"
   },
   "scene_9": {
     "img": "../assets/hollowknight.jpg",
-    "text": ["I got 8 hours of sleep and still feel tired.", "What is wrong with me?"],
+    "text": ["You open your eyes. You got 8 hours of sleep and still feel tired.", "You think to yourself: What is wrong with me?"],
     "nextScene": "scene_10"
   },
   "scene_10": {
@@ -72,7 +74,7 @@ let startSceneInfo = {
   },
   "scene_11": {
     "img": "../assets/hollowknight.jpg",
-    "text": ["Wait. Where is the door?", "Hello? What happened?"],
+    "text": ["Wait. Where is the door?", "Hello? What happened?",],
     "nextScene": "scene_12"
   },
   "scene_12": {
@@ -203,7 +205,7 @@ let startSceneInfo = {
     "nextScene": "scene_23"
   },
   "scene_23": {
-    "img": "../assets/hollowknight.jpg",
+    "img": "none",
     "text": [
       "............................................................................",
       "............................................................................",
@@ -232,6 +234,8 @@ let startSceneInfo = {
   }
 };
 
+// after scene 8 -- day transition
+
 const clickHandler = (event) => progressGame();
 document.body.addEventListener('click', clickHandler);
 
@@ -242,6 +246,16 @@ async function progressGame(){
 		if (isChoice()) await getChoice();
 		currentScene = startSceneInfo[currentScene]['nextScene']; countText = 0;
 		imageTag.style.backgroundImage = `url(${startSceneInfo[currentScene]['img']})`;
+
+		if(isBlackScreen()){
+			imageTag.style.display = 'none'
+			textTag.classList.add('blackScreenStyle');
+			textSpeed = 100;
+		} else{
+			imageTag.style.display = 'block'
+			textTag.classList.remove('blackScreenStyle');
+			textSpeed = 5;
+		}
 	}
 
 	showNextLine()
@@ -253,6 +267,10 @@ async function progressGame(){
 async function showNextLine(){
 	textTag.textContent = "";
 	await printText(textTag, startSceneInfo[currentScene]['text'][countText]); countText++;
+}
+
+function isBlackScreen(){
+	return currentScene === 'scene_4' || currentScene === 'scene_8' || currentScene === 'scene_23';
 }
 
 function isChangeScene(){
@@ -294,6 +312,6 @@ async function getChoice(){
 async function printText(tag, text){
 	for(let i=0; i<text.length;i++){
 		tag.textContent += text[i];
-		await new Promise(resolve => setTimeout(resolve, 5));
+		await new Promise(resolve => setTimeout(resolve, textSpeed));
 	}
 }

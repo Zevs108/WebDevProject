@@ -19,6 +19,8 @@ main{
 
 	align-items: center;
 	justify-content: center;
+
+	height: 100vh;
 }
 
 
@@ -46,6 +48,11 @@ div#image{
 div#text{
 	padding: 50px;
 	font-size: 1.5rem;
+}
+
+div#text.blackScreenStyle{
+	font-size: 4rem;
+	text-decoration: underline;
 }
 
 #choice0, #choice1, #choice2{
