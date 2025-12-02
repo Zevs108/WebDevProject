@@ -55,11 +55,11 @@ div#text.blackScreenStyle{
 	text-decoration: underline;
 }
 
-#choice0, #choice1, #choice2, #choice3{
+.choice{
 	display: none;
 }
 
-.btn {
+button {
     padding: 10px 20px;
 
     color: white;
@@ -71,7 +71,7 @@ div#text.blackScreenStyle{
     transition: 0.15s ease-in-out;
 }
 
-.btn:hover {
+button:hover {
     background-color: white;
     color: #111;
 }

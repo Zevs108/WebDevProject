@@ -358,7 +358,7 @@ let startSceneInfo = {
   },
 
   "scene_31_ending": {
-    "img": "../assets/hollowknight.jpg",
+    "img": null,
     "text": [
       "👍︎✌︎☠︎☠︎⚐︎❄︎ 👍︎⚐︎☠︎☠︎☜︎👍︎❄︎ ❄︎⚐︎ 🕈︎⚐︎☼︎☹︎👎︎"
     ],
@@ -366,14 +366,17 @@ let startSceneInfo = {
 };
 
 // after scene 8 -- day transition
-// scene 26 -- nextScene logic
 
 const clickHandler = (event) => progressGame();
-document.body.addEventListener('click', clickHandler);
+document.addEventListener('click', clickHandler);
+
+if(localStorage.getItem("isEnd") === "true") {
+  currentScene = "scene_31_ending";
+  manageEnding(); showNextLine();
+}
 
 async function progressGame(){
-	document.body.removeEventListener('click', clickHandler);
-
+	document.removeEventListener('click', clickHandler);
 	if(isChangeScene()){
 		if (isChoice()) await getChoice();
 		currentScene = startSceneInfo[currentScene]['nextScene']; countText = 0;
@@ -391,8 +394,11 @@ async function progressGame(){
 	}
 
 	showNextLine()
-		.then(() => document.body.addEventListener('click', clickHandler));
+		.then(() => document.addEventListener('click', clickHandler));
 
+  if(currentScene === "scene_31_ending"){
+    manageEnding();
+  }
 	console.log(currentScene);
 }
 
@@ -410,57 +416,81 @@ function isChangeScene(){
 }
 
 function isChoice(){
-	return currentScene === 'scene_13' || currentScene === 'scene_15' || currentScene === 'scene_20' || currentScene === "scene_28_secret";
+	return currentScene === 'scene_13' || currentScene === 'scene_15' || currentScene === 'scene_20' || currentScene === "scene_28_secret" || currentScene === "scene_29_help" || currentScene === "scene_29_class";
 }
 
 let currentChoice = 'choice0';
 const choiceScenes = {
-	'choice0': {
-		'choiceValue': ['scene_14_YES', 'scene_14_NO'],
-		'nextChoice': 'choice1'
-	},
-	'choice1': {
-		'choiceValue': ['scene_16_listen', 'scene_16_leave'],
-		'nextChoice': 'choice2'
-	},
-	'choice2': {
-		'choiceValue': ['scene_20_cry', 'scene_20_listen'],
-		'nextChoice': 'choice3'
-	},
-	'choice3': {
-		'choiceValue': ['scene_29_class', 'scene_29_help'],
-		'nextChoice': 'choice4'
-	}
+	'choice0': ['scene_14_YES', 'scene_14_NO'],
+	'choice1': ['scene_16_listen', 'scene_16_leave'],
+	'choice2': ['scene_20_cry', 'scene_20_listen'],
+	'choice3': ['scene_29_class', 'scene_29_help'],
+  'choice4': ['scene_30_listen', 'scene_30_leave'],
+  'choice5': ['scene_29_class','scene_30_wait']
 }
 
 async function getChoice(){
-	console.log(currentChoice);
+	  console.log(currentChoice);
     const choiceTag = document.getElementById(currentChoice);
     const btn1 = choiceTag.firstElementChild;
     const btn2 = choiceTag.lastElementChild;
 
     choiceTag.style.display = 'block';
 
+    let btnClicked;
     await new Promise(resolve => {
-        choiceTag.addEventListener('click', (e) => {
-			if (e.target === btn1) {
-				if(currentChoice === 'choice1'){
-					startSceneInfo['scene_26']['nextScene'] = 'scene_27_secret';
-					choiceScenes[currentChoice]['nextChoice'] = 'choice3';
-				}
-
-				startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice]['choiceValue'][0];
-			} else if (e.target === btn2) {
-				startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice]['choiceValue'][1];
-			}
-			resolve();
-		});
+      choiceTag.addEventListener('click', (e) => {
+        if (e.target === btn1) {
+          startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][0];
+          btnClicked = true;
+        }
+        if (e.target === btn2) {
+          startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][1];
+          btnClicked = false;
+        }
+        resolve();
+      });
     });
 
-	currentChoice = choiceScenes[currentChoice]['nextChoice'];
+    switch (currentChoice){
+      case "choice0":
+        console.log("changed scenes");
+        currentChoice = "choice1";
+        break;
+      case "choice1":
+        if(btnClicked) {
+          startSceneInfo['scene_26']['nextScene'] = 'scene_27_secret';
+          currentChoice = "choice3";
+        } else{
+          currentChoice = "choice2";
+        }
+        break;
+      case "choice2":
+        currentChoice = "choice3";
+        break;
+      case "choice3":
+        if(btnClicked){
+          console.log('went to choice4');
+          currentChoice = "choice4";
+        } else{
+          console.log('went to choice5');
+          currentChoice = "choice5";
+        }
+        break;
+      case "choice5":
+        currentChoice = "choice4";
+        break;
+    }
 	choiceTag.style.display = 'none';
 }
 
+function manageEnding(){
+  document.removeEventListener('click', clickHandler);
+  imageTag.style.display = 'none'
+	textTag.classList.add('blackScreenStyle');
+
+  localStorage.setItem("isEnd", "true");
+}
 
 async function printText(tag, text){
 	for(let i=0; i<text.length;i++){
