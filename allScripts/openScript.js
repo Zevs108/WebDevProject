@@ -408,7 +408,14 @@ async function showNextLine(){
 }
 
 function isBlackScreen(){
-	return currentScene === 'scene_4' || currentScene === 'scene_8' || currentScene === 'scene_23' || currentScene === 'scene_30';
+  switch (currentScene){
+    case 'scene_4':
+    case 'scene_8':
+    case 'scene_23':
+    case 'scene_30':
+      return true;
+  }
+  return false;
 }
 
 function isChangeScene(){
@@ -416,7 +423,16 @@ function isChangeScene(){
 }
 
 function isChoice(){
-	return currentScene === 'scene_13' || currentScene === 'scene_15' || currentScene === 'scene_20' || currentScene === "scene_28_secret" || currentScene === "scene_29_help" || currentScene === "scene_29_class";
+  switch (currentScene){
+    case 'scene_13':
+    case 'scene_15':
+    case 'scene_20':
+    case 'scene_28_secret':
+    case 'scene_29_help':
+    case 'scene_29_class':
+      return true;
+  }
+  return false;
 }
 
 let currentChoice = 'choice0';
