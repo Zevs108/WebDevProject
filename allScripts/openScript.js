@@ -365,8 +365,6 @@ let startSceneInfo = {
   },
 };
 
-// after scene 8 -- day transition
-
 const clickHandler = (event) => progressGame();
 document.addEventListener('click', clickHandler);
 
@@ -375,36 +373,42 @@ if(localStorage.getItem("isEnd") === "true") {
   manageEnding(); showNextLine();
 }
 
-async function progressGame(){
+function progressGame(){
 	document.removeEventListener('click', clickHandler);
+  console.log(currentScene);
+  
 	if(isChangeScene()){
-		if (isChoice()) await getChoice();
-		currentScene = startSceneInfo[currentScene]['nextScene']; countText = 0;
-		imageTag.style.backgroundImage = `url(${startSceneInfo[currentScene]['img']})`;
-
-		if(isBlackScreen()){
-			imageTag.style.display = 'none'
-			textTag.classList.add('blackScreenStyle');
-			textSpeed = 5;
-		} else{
-			imageTag.style.display = 'block'
-			textTag.classList.remove('blackScreenStyle');
-			textSpeed = 5;
-		}
-	}
-
-	showNextLine()
-		.then(() => document.addEventListener('click', clickHandler));
+		if (isChoice()) getChoice();
+    else {
+      changeScene();
+      if(isBlackScreen()){
+        imageTag.style.display = 'none';
+        textTag.classList.add('blackScreenStyle');
+        textSpeed = 50;
+      } else{
+        imageTag.style.display = 'block';
+        textTag.classList.remove('blackScreenStyle');
+        textSpeed = 5;
+      }
+      showNextLine();
+    }
+	} else{
+    showNextLine();
+  }
 
   if(currentScene === "scene_31_ending"){
     manageEnding();
   }
-	console.log(currentScene);
 }
 
-async function showNextLine(){
+function showNextLine(){
+  let text = startSceneInfo[currentScene]['text'][countText];
+
 	textTag.textContent = "";
-	await printText(textTag, startSceneInfo[currentScene]['text'][countText]); countText++;
+	printText(textTag, text);
+
+  countText++;
+  setTimeout(() => document.addEventListener('click', clickHandler), textSpeed * text.length);
 }
 
 function isBlackScreen(){
@@ -435,6 +439,15 @@ function isChoice(){
   return false;
 }
 
+function isDayTransition(){
+  return currentScene === "scene_8";
+}
+
+function changeScene(){
+  currentScene = startSceneInfo[currentScene]['nextScene']; countText = 0;
+  imageTag.style.backgroundImage = `url(${startSceneInfo[currentScene]['img']})`;
+}
+
 let currentChoice = 'choice0';
 const choiceScenes = {
 	'choice0': ['scene_14_YES', 'scene_14_NO'],
@@ -445,7 +458,7 @@ const choiceScenes = {
   'choice5': ['scene_29_class','scene_30_wait']
 }
 
-async function getChoice(){
+function getChoice(){
 	  console.log(currentChoice);
     const choiceTag = document.getElementById(currentChoice);
     const btn1 = choiceTag.firstElementChild;
@@ -454,50 +467,49 @@ async function getChoice(){
     choiceTag.style.display = 'block';
 
     let btnClicked;
-    await new Promise(resolve => {
-      choiceTag.addEventListener('click', (e) => {
-        if (e.target === btn1) {
-          startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][0];
-          btnClicked = true;
-        }
-        if (e.target === btn2) {
-          startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][1];
-          btnClicked = false;
-        }
-        resolve();
-      });
-    });
+    choiceTag.addEventListener('click', (e) => {
+      if (e.target === btn1) {
+        startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][0];
+        changeScene();
+        showNextLine();
+        choiceTag.style.display = 'none';
+        btnClicked = true;
+      }
+      if (e.target === btn2) {
+        startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice][1];
+        changeScene();
+        showNextLine();
+        choiceTag.style.display = 'none';
+        btnClicked = false;
+      }
 
-    switch (currentChoice){
-      case "choice0":
-        console.log("changed scenes");
-        currentChoice = "choice1";
-        break;
-      case "choice1":
-        if(btnClicked) {
-          startSceneInfo['scene_26']['nextScene'] = 'scene_27_secret';
+      switch (currentChoice){
+        case "choice0":
+          currentChoice = "choice1";
+          break;
+        case "choice1":
+          if(btnClicked) {
+            startSceneInfo['scene_26']['nextScene'] = 'scene_27_secret';
+            currentChoice = "choice3";
+          } else{
+            currentChoice = "choice2";
+          }
+          break;
+        case "choice2":
           currentChoice = "choice3";
-        } else{
-          currentChoice = "choice2";
-        }
-        break;
-      case "choice2":
-        currentChoice = "choice3";
-        break;
-      case "choice3":
-        if(btnClicked){
-          console.log('went to choice4');
+          break;
+        case "choice3":
+          if(btnClicked){
+            currentChoice = "choice4";
+          } else{
+            currentChoice = "choice5";
+          }
+          break;
+        case "choice5":
           currentChoice = "choice4";
-        } else{
-          console.log('went to choice5');
-          currentChoice = "choice5";
-        }
-        break;
-      case "choice5":
-        currentChoice = "choice4";
-        break;
-    }
-	choiceTag.style.display = 'none';
+          break;
+      }
+    });
 }
 
 function manageEnding(){
@@ -508,9 +520,8 @@ function manageEnding(){
   localStorage.setItem("isEnd", "true");
 }
 
-async function printText(tag, text){
+function printText(tag, text){
 	for(let i=0; i<text.length;i++){
-		tag.textContent += text[i];
-		await new Promise(resolve => setTimeout(resolve, textSpeed));
+    setTimeout(() => tag.textContent += text[i], textSpeed * i);
 	}
 }
