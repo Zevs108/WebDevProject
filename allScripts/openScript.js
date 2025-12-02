@@ -208,33 +208,165 @@ let startSceneInfo = {
     "img": "none",
     "text": [
       "............................................................................",
-      "............................................................................",
-      "............................................................................",
-      "............................................................................"
+      "rebooting system............................................................."
     ],
     "nextScene": "scene_24"
   },
   "scene_24": {
     "img": "../assets/hollowknight.jpg",
     "text": [
-      "Should I go to class?",
-      "Maybe Daniel is there.",
-      "I could ask him what happened."
+      "You jump out of your bed in cold sweat.",
+      "You sit there. Trying to process everything that just happened.",
+      "Did you have a nightmare?",
+	  "...",
+	  "You can't remember."
     ],
     "nextScene": "scene_25"
   },
   "scene_25": {
     "img": "../assets/hollowknight.jpg",
     "text": [
-      "Should I go to class?",
-      "Maybe Daniel is there.",
-      "I could ask him what happened."
+      "You decide to catch up on your sleep in the metro."
     ],
     "nextScene": "scene_26"
-  }
+  },
+  "scene_26": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You leave your lunch in your locker and go to the lounge."
+    ],
+    "nextScene": "scene_27"
+  },
+  "scene_27": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You enter the code. 2-4-1-5"
+    ],
+    "nextScene": "scene_28"
+  },
+  "scene_28": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You chill in the lounge until your class starts."
+    ],
+    "nextScene": "scene_29"
+  },
+  "scene_29": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You work on your programming projects."
+    ],
+    "nextScene": "scene_30"
+  },
+  "scene_30": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "6 hours later."
+    ],
+    "nextScene": "scene_31"
+  },
+  "scene_31": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You are tired and decide to go home."
+    ],
+    "nextScene": "scene_32"
+  },
+  "scene_32": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      " It takes you 1 hour to get home."
+    ],
+    "nextScene": "scene_33"
+  },
+  "scene_33": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You sleep."
+    ],
+    "nextScene": "scene_24"
+  },
+  "scene_27_secret": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "...",
+      "You look at the place where the door was..",
+      "You cannot believe your eyes.",
+	  "AM I INSANE?",
+	  "☟︎☜︎ 👍︎✌︎☠︎☠︎⚐︎❄︎ 🕆︎☠︎👎︎☜︎☼︎💧︎❄︎✌︎☠︎👎︎ ✡︎⚐︎🕆︎📬︎ ✡︎⚐︎🕆︎ ✌︎☼︎☜︎ 💧︎✌︎☞︎☜︎📬︎",
+	  "✡︎⚐︎🕆︎ ✌︎☼︎☜︎ ✋︎☠︎ ✌︎ 💣︎✌︎❄︎☼︎✋︎✠︎📬︎",
+	  "✡︎⚐︎🕆︎ ✌︎☼︎☜︎ ☠︎⚐︎❄︎ ☼︎☜︎✌︎☹︎📬︎",
+	  "✡︎⚐︎🕆︎ 💣︎🕆︎💧︎❄︎ ☜︎💧︎👍︎✌︎🏱︎☜︎📬︎"
+    ],
+    "nextScene": "scene_28_secret"
+  },
+  "scene_28_secret": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "👎︎⚐︎☠︎🕯︎❄︎ ☹︎☜︎❄︎ ☟︎✋︎💣︎ 🕈︎✋︎☠︎📬︎"
+    ],
+    "nextScene": null
+  },
+  "scene_29_class": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You look at the screen.",
+      "You see the text again."
+    ],
+    "nextScene": null
+  },
+  "scene_29_help": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You try to talk.",
+      "You try. You say ☝︎⚐︎ ❄︎⚐︎ 👍︎☹︎✌︎💧︎💧︎ HELP.",
+      "(but nobody came)"
+    ],
+    "nextScene": null
+  },
+  "scene_30_wait": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You stand still.",
+      "You wait.",
+      "You wait.",
+	  "You... go to class."
+    ],
+    "nextScene": "scene_29_class"
+  },
+
+  "scene_30_listen": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You will be free now.",
+      "You don't have to suffer.",
+      "You don't have to pretend to be someone.",
+	  "The truth is simple.",
+	  "PLAYER. I AM SORRY, BUT IT SEEMS LIKE YOU LOST."
+    ],
+    "nextScene": "scene_31_ending"
+  },
+  "scene_30_leave": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "You try to leave. But you cannot move.",
+      "Something is preventing you.",
+      "Someone is preven⧫︎♓︎■︎♑︎ ⍓︎□︎◆︎📬︎",
+	  "✋︎ 🕈︎✋︎☹︎☹︎ ☠︎⚐︎❄︎ ☹︎☜︎❄︎ ✡︎⚐︎🕆︎ 👍︎⚐︎☠︎❄︎☼︎⚐︎☹︎ 💣︎☜︎ ✌︎☝︎✌︎✋︎☠︎"
+    ],
+    "nextScene": "scene_31_ending"
+  },
+
+  "scene_31_ending": {
+    "img": "../assets/hollowknight.jpg",
+    "text": [
+      "👍︎✌︎☠︎☠︎⚐︎❄︎ 👍︎⚐︎☠︎☠︎☜︎👍︎❄︎ ❄︎⚐︎ 🕈︎⚐︎☼︎☹︎👎︎"
+    ],
+  },
 };
 
 // after scene 8 -- day transition
+// scene 26 -- nextScene logic
 
 const clickHandler = (event) => progressGame();
 document.body.addEventListener('click', clickHandler);
@@ -250,7 +382,7 @@ async function progressGame(){
 		if(isBlackScreen()){
 			imageTag.style.display = 'none'
 			textTag.classList.add('blackScreenStyle');
-			textSpeed = 100;
+			textSpeed = 5;
 		} else{
 			imageTag.style.display = 'block'
 			textTag.classList.remove('blackScreenStyle');
@@ -270,7 +402,7 @@ async function showNextLine(){
 }
 
 function isBlackScreen(){
-	return currentScene === 'scene_4' || currentScene === 'scene_8' || currentScene === 'scene_23';
+	return currentScene === 'scene_4' || currentScene === 'scene_8' || currentScene === 'scene_23' || currentScene === 'scene_30';
 }
 
 function isChangeScene(){
@@ -278,16 +410,32 @@ function isChangeScene(){
 }
 
 function isChoice(){
-	return currentScene === 'scene_13' || currentScene === 'scene_15' || currentScene === 'scene_20';
+	return currentScene === 'scene_13' || currentScene === 'scene_15' || currentScene === 'scene_20' || currentScene === "scene_28_secret";
 }
 
+let currentChoice = 'choice0';
 const choiceScenes = {
-	0: ['scene_14_YES', 'scene_14_NO'],
-	1: ['scene_16_listen', 'scene_16_leave'],
-	2: ['scene_20_cry', 'scene_20_listen'],
+	'choice0': {
+		'choiceValue': ['scene_14_YES', 'scene_14_NO'],
+		'nextChoice': 'choice1'
+	},
+	'choice1': {
+		'choiceValue': ['scene_16_listen', 'scene_16_leave'],
+		'nextChoice': 'choice2'
+	},
+	'choice2': {
+		'choiceValue': ['scene_20_cry', 'scene_20_listen'],
+		'nextChoice': 'choice3'
+	},
+	'choice3': {
+		'choiceValue': ['scene_29_class', 'scene_29_help'],
+		'nextChoice': 'choice4'
+	}
 }
+
 async function getChoice(){
-    const choiceTag = document.getElementById('choice' + choiceCount);
+	console.log(currentChoice);
+    const choiceTag = document.getElementById(currentChoice);
     const btn1 = choiceTag.firstElementChild;
     const btn2 = choiceTag.lastElementChild;
 
@@ -296,16 +444,21 @@ async function getChoice(){
     await new Promise(resolve => {
         choiceTag.addEventListener('click', (e) => {
 			if (e.target === btn1) {
-				startSceneInfo[currentScene]['nextScene'] = choiceScenes[choiceCount][0];
-			} else if (e.target === btn2) {
-				startSceneInfo[currentScene]['nextScene'] = choiceScenes[choiceCount][1];
-			}
+				if(currentChoice === 'choice1'){
+					startSceneInfo['scene_26']['nextScene'] = 'scene_27_secret';
+					choiceScenes[currentChoice]['nextChoice'] = 'choice3';
+				}
 
+				startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice]['choiceValue'][0];
+			} else if (e.target === btn2) {
+				startSceneInfo[currentScene]['nextScene'] = choiceScenes[currentChoice]['choiceValue'][1];
+			}
 			resolve();
 		});
     });
 
-	choiceTag.style.display = 'none'; choiceCount++;
+	currentChoice = choiceScenes[currentChoice]['nextChoice'];
+	choiceTag.style.display = 'none';
 }
 
 
