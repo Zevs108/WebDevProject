@@ -12,7 +12,8 @@ const secondDialogue = [
   'Nap was great now I can work',
   'Huh, what file is this',
   'Let me check',
-  'Nothing happend',
+  '* Clicks the file *',
+  '* Nothing happend *',
   'Must have been an old file I forgot to delete'
 ];
 const thirdDialogue = [
@@ -30,24 +31,34 @@ const fourthDialogue = [
   'I have a lot of things to do so screw off'
 ];
 const fifthDialogue = [
-  'Wait was is this',
-  'Oh my god',
-  'What are you leave me alone!',
-  'Ahhhhhhhhhhhhhhhhhhhhhhhh'
+  'Hello?',
+  'You should just quit it with the pranks',
+  'I am really tired',
+  'I do not have time to deal with this'
 ];
 const sixthDialogue = [
+  'Wait was is this!',
+  'Oh my god!',
+  'What are you leave me alone!',
+  'Ahhhhhhhhhhhhhhhhhhhhhhhh!!!!!'
+];
+const seventhDialogue = [
   'Oh geez',
   'It was just a dream',
   'I should really take more rest',
   'Starting to see stuff because of how tired I am'
 ];
+const blank = [];
 const screenDialogue = [
     firstDialogue,
+    blank,
     secondDialogue,
     thirdDialogue,
     fourthDialogue,
     fifthDialogue,
-    sixthDialogue
+    sixthDialogue,
+    blank,
+    seventhDialogue
 ];
 let i = 0;
 let j = 0;
@@ -85,10 +96,13 @@ function handleKey(e){
 const screen = document.getElementById('screen');
 const screenImages = [
   " ",
+  "url('../assets/blackscreen.jpg')",
   "url('../assets/ignore2.jpg')",
   "url('../assets/ignore3.jpg')",
   "url('../assets/ignore4.jpg')",
   "url('../assets/ignore5.jpg')",
+  "url('../assets/ignore5monster.jpg')",
+  "url('../assets/blackscreen.jpg')",
   "url('../assets/ignore1.jpg')"
 ];
 function changeScreen(){

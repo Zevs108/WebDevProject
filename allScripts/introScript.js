@@ -2,6 +2,10 @@
 //Making the dialogue on the bottom of the screen change
 const dialogue = document.getElementById('words');
 const links = document.getElementById('continue');
+const openBtn = document.getElementById('open');
+const ignoreBtn = document.getElementById('ignore');
+const screen = document.getElementById('screen');
+
 const startingDialogue = [
   'starting first sentence',
   'starting second sentence',
@@ -24,10 +28,14 @@ const screenDialogue = [
 ];
 let i = 0;
 let j = 0;
-document.addEventListener('click', runDialogue);
+screen.addEventListener('click', runDialogue);
 function runDialogue(e){
     let currentDialogue = screenDialogue[i];
     dialogue.textContent = currentDialogue[j];
+    if (i === screenDialogue.length - 1 && j === currentDialogue.length - 1){
+      openBtn.classList.remove('btn');
+      ignoreBtn.classList.remove('btn');
+    }
     j++;
     //Changes to new set of dialogue and changes the image on screen
     if (j > currentDialogue.length){
@@ -55,7 +63,7 @@ function handleKey(e){
 //Making the image change on the screen change
 //Make sure images are the correct size for the screen
 //keep index 0 blank
-const screen = document.getElementById('screen');
+
 const screenImages = [
   " ",
   "url('../assets/hornet.jpg')",
@@ -66,14 +74,6 @@ function changeScreen(){
     screen.style.backgroundImage = screenImages[i];
 }
 //Make function to branchout from intro
-const ignoreButton = document.createElement('button');
-const openButton = document.createElement('button');
-if (screen.style.backgroundImage === "url('../assets/windows.jpg')"){
-  ignoreButton.textContent = 'Ignore It';
-  openButton.textContent = 'Open It';
-  dialogue.appendChild(ignoreButton);
-  dialogue.appendChild(openButton);
-}
 
 const output = document.querySelector('h3');
 const radioBtns = document.querySelectorAll('input[type="radio"]');
