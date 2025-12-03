@@ -12,6 +12,9 @@ body{
 #dialogue {
     background-color: black;
     height: 145px;
+    text-align: center;
+    display: flex;
+    gap: 50px;
 }
 #words {
     font-size: 40pt;
@@ -21,6 +24,17 @@ body{
 }
 .btn {
     display: none;
+    flex: 1;
+}
+a:link {
+    color: white;
+    font-size: 40pt;
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+    font-size: 40pt;
+    text-decoration: none;
 }
 h1 {
     display: inline-block; 
