@@ -30,20 +30,22 @@ let i = 0;
 let j = 0;
 screen.addEventListener('click', runDialogue);
 function runDialogue(e){
-    let currentDialogue = screenDialogue[i];
-    dialogue.textContent = currentDialogue[j];
-    if (i === screenDialogue.length - 1 && j === currentDialogue.length - 1){
-      openBtn.classList.remove('btn');
-      ignoreBtn.classList.remove('btn');
-    }
-    j++;
-    //Changes to new set of dialogue and changes the image on screen
-    if (j > currentDialogue.length){
-      j = 0;
-      i++;
-      changeScreen();
-    }
+  let currentDialogue = screenDialogue[i];
+  dialogue.textContent = currentDialogue[j];
+  
+  j++;
+  //Changes to new set of dialogue and changes the image on screen
+  if (j > currentDialogue.length){
+    j = 0;
+    i++;
+    changeScreen();
+  }
+  if (i >= screenDialogue.length){
+    openBtn.classList.remove('btn');
+    ignoreBtn.classList.remove('btn');
+  };
 }
+
 //Making key functions to make it a little more user friendly
 document.addEventListener('keydown', handleKey);
 function handleKey(e){
