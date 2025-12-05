@@ -1,7 +1,6 @@
 'use strict';
 //Making the dialogue on the bottom of the screen change
 const dialogue = document.getElementById('words');
-const links = document.getElementById('continue');
 const firstDialogue = [
   'Wow that was a long day',
   'I have a lot of homework to do',
@@ -50,7 +49,7 @@ const seventhDialogue = [
 ];
 const endingDialogue = [
   'You are safe',
-  'for now'
+  'For now...'
 ];
 const blank = [];
 const screenDialogue = [
@@ -63,12 +62,12 @@ const screenDialogue = [
     sixthDialogue,
     blank,
     seventhDialogue,
-    blank
+    endingDialogue
 ];
 let i = 0;
 let j = 0;
 document.addEventListener('click', runDialogue);
-function runDialogue(e){
+function runDialogue(){
     let currentDialogue = screenDialogue[i];
     dialogue.textContent = currentDialogue[j];
     j++;
@@ -112,13 +111,4 @@ const screenImages = [
 ];
 function changeScreen(){
     screen.style.backgroundImage = screenImages[i];
-}
-//Make function to branchout from intro
-const ignoreButton = document.createElement('button');
-const openButton = document.createElement('button');
-if (screen.style.backgroundImage === "url('../assets/windows.jpg')"){
-  ignoreButton.textContent = 'Ignore It';
-  openButton.textContent = 'Open It';
-  dialogue.appendChild(ignoreButton);
-  dialogue.appendChild(openButton);
 }
