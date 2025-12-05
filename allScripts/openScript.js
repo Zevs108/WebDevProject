@@ -10,17 +10,17 @@ let textSpeed = 5;
 
 const startSceneInfo = {
   'scene_1': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/1_blackScreen.jpg',
     'text': ['What is happening? Is it off?'],
     'nextScene': 'scene_2'
   },
   'scene_2': {
-    'img': '../assets/hornet.jpg',
+    'img': '../assets/2_rebooting.jpg',
     'text': ["Oh, it's rebooting.", 'I guess I will just wait?'],
     'nextScene': 'scene_3'
   },
   'scene_3': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/3+5+29+31_PC.jpg',
     'text': [
       'Ok, that was weird.',
       'Maybe some prank?',
@@ -34,17 +34,17 @@ const startSceneInfo = {
     'nextScene': 'scene_5'
   },
   'scene_5': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/3+5+29+31_PC',
     'text': ["I am going to die, it's time to go home..."],
     'nextScene': 'scene_6'
   },
   'scene_6': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/6_metro.jpg',
     'text': ['I hate the 1 hour of metro'],
     'nextScene': 'scene_7'
   },
   'scene_7': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/7+9+24+33_bed.jpg',
     'text': ['FINALY, some sleep.'],
     'nextScene': 'scene_8'
   },
@@ -60,12 +60,12 @@ const startSceneInfo = {
     'nextScene': 'scene_9'
   },
   'scene_9': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/7+9+24+33_bed.jpg',
     'text': ['You open your eyes. You got 8 hours of sleep and still feel tired.', 'You think to yourself: What is wrong with me?'],
     'nextScene': 'scene_10'
   },
   'scene_10': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/10+26_lockers.jpg',
     'text': [
       'you arrive at 6:50am.',
       'You leave your lunch as per usual and make your way to the lounge.'
@@ -73,12 +73,12 @@ const startSceneInfo = {
     'nextScene': 'scene_11'
   },
   'scene_11': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/11_wall.jpg',
     'text': ['Wait. Where is the door?', 'Hello? What happened?',],
     'nextScene': 'scene_12'
   },
   'scene_12': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/12_hallway.jpg',
     'text': [
       'Should I go to class?',
       'Maybe Daniel is there.',
@@ -87,12 +87,12 @@ const startSceneInfo = {
     'nextScene': 'scene_13'
   },
   'scene_13': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/13_NourLabs.jpg',
     'text': ['Here is Daniel. Should I tell him about the missing lounge?'],
     'nextScene': null
   },
   'scene_14_YES': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/14_NourLabsTalk.jpg',
     'text': [
       'Hey Daniel ! Do you know what happened to the lounge?',
       'What do you mean? What lounge?',
@@ -107,22 +107,22 @@ const startSceneInfo = {
     'nextScene': 'scene_14_NO'
   },
   'scene_14_NO': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/13_NourLabs.jpg',
     'text': ['Well, I have my project due tomorrow, so time to get to work.'],
     'nextScene': 'scene_15_NO'
   },
   'scene_15_NO': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/15_PC.jpg',
     'text': ["Wait, the file.. it's here."],
     'nextScene': 'scene_15'
   },
   'scene_15': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/16_PCListen.jpg',
     'text': ['Listen to me.'],
     'nextScene': null
   },
   'scene_16_listen': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/16_PCListen.jpg',
     'text': [
       'You are not you.',
       'You wanted to know the truth.',
@@ -136,7 +136,7 @@ const startSceneInfo = {
     'nextScene': 'scene_23'
   },
   'scene_16_leave': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/16_PCLeave.jpg',
     'text': [
       'What the hell is this?',
       'I am out of here.',
@@ -145,17 +145,17 @@ const startSceneInfo = {
     'nextScene': 'scene_17'
   },
   'scene_17': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/17_door.jpg',
     'text': ['The door..', "it's locked?", "It's just me and Daniel here."],
     'nextScene': 'scene_18'
   },
   'scene_18': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/18_NourBack.jpg',
     'text': ['Hey, Daniel !', 'Why is the door locked?'],
     'nextScene': 'scene_19'
   },
   'scene_19': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/19_NourDead.jpg',
     'text': ['...', 'What the f--- is happening here???'],
     'nextScene': 'scene_20'
   },
@@ -165,7 +165,7 @@ const startSceneInfo = {
     'nextScene': null
   },
   'scene_20_cry': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/20_Cry.jpg',
     'text': [
       'SOMEONE !',
       'Please HELP !',
@@ -176,7 +176,7 @@ const startSceneInfo = {
     'nextScene': 'scene_21'
   },
   'scene_20_listen': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/20_Listen.jpg',
     'text': [
       'Listen.',
       "Don't try to escape.",
@@ -195,12 +195,12 @@ const startSceneInfo = {
     'nextScene': 'scene_23'
   },
   'scene_21': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/21_dream.jpg',
     'text': ['What is happening? This is just a dream.'],
     'nextScene': 'scene_22'
   },
   'scene_22': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/22_dream.jpg',
     'text': ['THIS IS JUST A DREAM'],
     'nextScene': 'scene_23'
   },
@@ -213,7 +213,7 @@ const startSceneInfo = {
     'nextScene': 'scene_24'
   },
   'scene_24': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/7+9+24+33_bed.jpg',
     'text': [
       'You jump out of your bed in cold sweat.',
       'You sit there. Trying to process everything that just happened.',
@@ -224,70 +224,70 @@ const startSceneInfo = {
     'nextScene': 'scene_25'
   },
   'scene_25': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/25+32_metro.jpg',
     'text': [
       'You decide to catch up on your sleep in the metro.'
     ],
     'nextScene': 'scene_26'
   },
   'scene_26': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/10+26_lockers.jpg',
     'text': [
       'You leave your lunch in your locker and go to the lounge.'
     ],
     'nextScene': 'scene_27'
   },
   'scene_27': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/27_door.jpg',
     'text': [
       'You enter the code. 2-4-1-5'
     ],
     'nextScene': 'scene_28'
   },
   'scene_28': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/28_Lounge.jpg',
     'text': [
       'You chill in the lounge until your class starts.'
     ],
     'nextScene': 'scene_29'
   },
   'scene_29': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/3+5+29+31_PC.jpg',
     'text': [
       'You work on your programming projects.'
     ],
     'nextScene': 'scene_30'
   },
   'scene_30': {
-    'img': '../assets/hollowknight.jpg',
+    'img': 'none',
     'text': [
       '6 hours later.'
     ],
     'nextScene': 'scene_31'
   },
   'scene_31': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/3+5+29+31_PC.jpg',
     'text': [
       'You are tired and decide to go home.'
     ],
     'nextScene': 'scene_32'
   },
   'scene_32': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/25+32_metro.jpg',
     'text': [
       ' It takes you 1 hour to get home.'
     ],
     'nextScene': 'scene_33'
   },
   'scene_33': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/7+9+24+33_bed.jpg',
     'text': [
       'You sleep.'
     ],
     'nextScene': 'scene_24'
   },
   'scene_27_secret': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/27S_wall.jpg',
     'text': [
       '...',
       'You look at the place where the door was..',
@@ -296,19 +296,19 @@ const startSceneInfo = {
 	  '☟︎☜︎ 👍︎✌︎☠︎☠︎⚐︎❄︎ 🕆︎☠︎👎︎☜︎☼︎💧︎❄︎✌︎☠︎👎︎ ✡︎⚐︎🕆︎📬︎ ✡︎⚐︎🕆︎ ✌︎☼︎☜︎ 💧︎✌︎☞︎☜︎📬︎',
 	  '..??',
 	  '✡︎⚐︎🕆︎ ✌︎☼︎☜︎ ☠︎⚐︎❄︎ ☼︎☜︎✌︎☹︎📬︎',
-	  '✡︎⚐︎🕆︎ 💣︎🕆︎💧︎❄︎ ☜︎💧︎👍︎✌︎🏱︎☜︎📬︎... choose'
+	  '✡︎⚐︎🕆︎ 💣︎🕆︎💧︎❄︎ ☜︎💧︎👍︎✌︎🏱︎☜︎📬︎'
     ],
     'nextScene': 'scene_28_secret'
   },
   'scene_28_secret': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/28S+29S+30S_wallGlitch.jpg',
     'text': [
-      '👎︎⚐︎☠︎🕯︎❄︎ ☹︎☜︎❄︎ ☟︎✋︎💣︎ 🕈︎✋︎☠︎📬︎'
+      '👎︎⚐︎☠︎🕯︎❄︎ ☹︎☜︎❄︎ ☟︎✋︎💣︎ 🕈︎✋︎☠︎📬︎... choose'
     ],
     'nextScene': null
   },
   'scene_29_class': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/29S+30S_Class.jpg',
     'text': [
       'You look at the screen.',
       'You see the text again.'
@@ -316,7 +316,7 @@ const startSceneInfo = {
     'nextScene': null
   },
   'scene_29_help': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/28S+29S+30S_wallGlitch.jpg',
     'text': [
       'You try to talk.',
       'You try. You say ☝︎⚐︎ ❄︎⚐︎ 👍︎☹︎✌︎💧︎💧︎ HELP.',
@@ -325,7 +325,7 @@ const startSceneInfo = {
     'nextScene': null
   },
   'scene_30_wait': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/28S+29S+30S_wallGlitch.jpg',
     'text': [
       'You stand still.',
       'You wait.',
@@ -336,7 +336,7 @@ const startSceneInfo = {
   },
 
   'scene_30_listen': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/30S_listen.jpg',
     'text': [
       'You will be free now.',
       "You don't have to suffer.",
@@ -347,7 +347,7 @@ const startSceneInfo = {
     'nextScene': 'scene_31_ending'
   },
   'scene_30_leave': {
-    'img': '../assets/hollowknight.jpg',
+    'img': '../assets/29S+30S_Class.jpg',
     'text': [
       'You try to leave. But you cannot move.',
       'Something is preventing you.',
