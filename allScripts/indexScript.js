@@ -66,17 +66,30 @@ USE FULL SCREEN MODE (F11)
 COMPLETE THE PROGRAM.  
 `;
 
-//events used for the desktop interactivity
-logoIcon.addEventListener('click', (event) => select(logoIcon));
+//logo icon events
+logoIcon.addEventListener('click', handleLogoSelect);
 logoIcon.addEventListener('dblclick', handleConsole);
-taskBar.addEventListener('click', () => alert("ADMIN PERMISSIONS NEEDED"));
-hornetIcon.addEventListener('click', (event) => select(hornetIcon));
-hornetIcon.addEventListener('dblclick', () => alert("Shaw !"));
-refIcon.addEventListener('click', (event) => select(refIcon));
+function handleLogoSelect(event){select(event, logoIcon);}
+
+//task bar events
+taskBar.addEventListener('click', handleTaskBar);
+function handleTaskBar(event){alert("ADMIN PERMISSIONS NEEDED");}
+
+//hornet icon events
+hornetIcon.addEventListener('click', handleHornetSelect);
+function handleHornetSelect(event){select(event, hornetIcon);}
+hornetIcon.addEventListener('dblclick', handleHornet);
+function handleHornet(event){alert("Shaw !");}
+
+//reference icon events
+refIcon.addEventListener('click', handleRefSelect);
 refIcon.addEventListener('dblclick', handleSugg);
+function handleRefSelect(event){select(event, refIcon);}
+
 document.body.addEventListener('click', () => deselect(allIcons)); 
 
-function select(tag){
+// takes the 
+function select(event, tag){
 	tag.classList.add('selected');
 	event.stopPropagation();
 }

@@ -10,7 +10,7 @@ body{
 
 /*The backgrounds for windows and noise screen*/
 .screen1{
-	background-image: url("../assets/windows.jpg");
+	background-image: url("indexAssets/windows.jpg");
 	background-size: 100vw 100vh;
 
 	height: 100vh;
@@ -26,7 +26,7 @@ body{
 }
 
 #taskBar{
-	background-image: url("../assets/taskBar.png");
+	background-image: url("indexAssets/taskBar.png");
 	background-size: 100% 100%;
 	
 	width: 100%;
@@ -91,7 +91,7 @@ body{
 }
 
 #console{
-	background-image: url("../assets/console.png");
+	background-image: url("indexAssets/console.png");
 	background-size: 100% 100%;
 	
 	width: 60%;
@@ -118,7 +118,7 @@ body{
 
 @media (max-width: 1200px){
 	#taskBar{
-		background-image: url("../assets/taskBarSmall.png");
+		background-image: url("indexAssets/taskBarSmall.png");
 	}
 }
 @media (max-width: 600px){
@@ -126,7 +126,7 @@ body{
 		display: none;
 	}
 	.screen1{
-		background-image: url("../assets/phoneBg.jpg");
+		background-image: url("indexAssets/phoneBg.jpg");
 	}
 	#logoIcon{
 	    position: absolute;
