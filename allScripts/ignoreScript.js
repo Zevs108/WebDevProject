@@ -48,6 +48,10 @@ const seventhDialogue = [
   'I should really take more rest',
   'Starting to see stuff because of how tired I am'
 ];
+const endingDialogue = [
+  'You are safe',
+  'for now'
+];
 const blank = [];
 const screenDialogue = [
     firstDialogue,
@@ -58,7 +62,8 @@ const screenDialogue = [
     fifthDialogue,
     sixthDialogue,
     blank,
-    seventhDialogue
+    seventhDialogue,
+    blank
 ];
 let i = 0;
 let j = 0;
@@ -97,7 +102,7 @@ const screen = document.getElementById('screen');
 const screenImages = [
   " ",
   "url('../assets/blackscreen.jpg')",
-  "url('../assets/ignore2.jpg')",
+  "url('../assets/ignore2edited.jpg')",
   "url('../assets/ignore3.jpg')",
   "url('../assets/ignore4.jpg')",
   "url('../assets/ignore5.jpg')",
