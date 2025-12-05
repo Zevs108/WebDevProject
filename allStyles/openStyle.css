@@ -34,9 +34,10 @@ div#dayScreen{
 }
 
 div#image{
-	background-image: url(../assets/csLounge.png);
-	background-size: cover;
+	background-image: url("../OpenAssets/1_blackScreen.jpg");
+	background-size: contain;
 	background-repeat: no-repeat;
+	background-position: center;
 
 	height: 80vh;
 	width: 100vw;
