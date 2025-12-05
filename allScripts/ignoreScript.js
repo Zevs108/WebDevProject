@@ -1,7 +1,6 @@
 'use strict';
 //Making the dialogue on the bottom of the screen change
 const dialogue = document.getElementById('words');
-const links = document.getElementById('continue');
 const firstDialogue = [
   'Wow that was a long day',
   'I have a lot of homework to do',
@@ -48,6 +47,10 @@ const seventhDialogue = [
   'I should really take more rest',
   'Starting to see stuff because of how tired I am'
 ];
+const endingDialogue = [
+  'You are safe',
+  'For now...'
+];
 const blank = [];
 const screenDialogue = [
     firstDialogue,
@@ -58,12 +61,13 @@ const screenDialogue = [
     fifthDialogue,
     sixthDialogue,
     blank,
-    seventhDialogue
+    seventhDialogue,
+    endingDialogue
 ];
 let i = 0;
 let j = 0;
 document.addEventListener('click', runDialogue);
-function runDialogue(e){
+function runDialogue(){
     let currentDialogue = screenDialogue[i];
     dialogue.textContent = currentDialogue[j];
     j++;
@@ -97,7 +101,7 @@ const screen = document.getElementById('screen');
 const screenImages = [
   " ",
   "url('../assets/blackscreen.jpg')",
-  "url('../assets/ignore2.jpg')",
+  "url('../assets/ignore2edited.jpg')",
   "url('../assets/ignore3.jpg')",
   "url('../assets/ignore4.jpg')",
   "url('../assets/ignore5.jpg')",
@@ -107,13 +111,4 @@ const screenImages = [
 ];
 function changeScreen(){
     screen.style.backgroundImage = screenImages[i];
-}
-//Make function to branchout from intro
-const ignoreButton = document.createElement('button');
-const openButton = document.createElement('button');
-if (screen.style.backgroundImage === "url('../assets/windows.jpg')"){
-  ignoreButton.textContent = 'Ignore It';
-  openButton.textContent = 'Open It';
-  dialogue.appendChild(ignoreButton);
-  dialogue.appendChild(openButton);
 }
