@@ -100,14 +100,14 @@ function handleKey(e){
 const screen = document.getElementById('screen');
 const screenImages = [
   " ",
-  "url('../assets/blackscreen.jpg')",
-  "url('../assets/ignore2edited.jpg')",
-  "url('../assets/ignore3.jpg')",
-  "url('../assets/ignore4.jpg')",
-  "url('../assets/ignore5.jpg')",
-  "url('../assets/ignore5monster.jpg')",
-  "url('../assets/blackscreen.jpg')",
-  "url('../assets/ignore1.jpg')"
+  "url('../IgnoreAssets/blackscreen.jpg')",
+  "url('../IgnoreAssets/ignore2edited.jpg')",
+  "url('../IgnoreAssets/ignore3.jpg')",
+  "url('../IgnoreAssets/ignore4.jpg')",
+  "url('../IgnoreAssets/ignore5.jpg')",
+  "url('../IgnoreAssets/ignore5monster.jpg')",
+  "url('../IgnoreAssets/blackscreen.jpg')",
+  "url('../IgnoreAssets/ignore1.jpg')"
 ];
 function changeScreen(){
     screen.style.backgroundImage = screenImages[i];

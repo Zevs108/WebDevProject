@@ -1,11 +1,9 @@
 'use strict';
 
-const screenTag = document.getElementById('gameScreen');
 const textTag = document.getElementById('text');
 const imageTag = document.getElementById('image');
 let currentScene = 'scene_1';
 let countText = 0;
-const choiceCount = 0;
 let textSpeed = 5;
 
 const startSceneInfo = {
