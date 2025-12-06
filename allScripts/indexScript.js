@@ -83,33 +83,43 @@ function handleHornet(event){alert("Shaw !");}
 
 //reference icon events
 refIcon.addEventListener('click', handleRefSelect);
-refIcon.addEventListener('dblclick', handleSugg);
+refIcon.addEventListener('dblclick', handleFormTag);
 function handleRefSelect(event){select(event, refIcon);}
 
-document.body.addEventListener('click', () => deselect(allIcons)); 
+//deselect event
+document.body.addEventListener('click', handleDeselect); 
+function handleDeselect(event){deselect(allIcons);}
 
-// takes the 
+// takes the tag and adds the selected style class, stops event propagation
 function select(event, tag){
 	tag.classList.add('selected');
 	event.stopPropagation();
 }
 
+//removes the select style class when clicking 
 function deselect(tags){
 	for(let i=0; i < tags.length; i++){
 		tags[i].classList.remove('selected');
 	}
 }
 
-
-const formTag = document.getElementById('form');
+//get all tags for the form
 const sendBtn = document.getElementById('send');
 const closeBtn = document.getElementById('close');
-sendBtn.addEventListener('click', checkEmail);
-closeBtn.addEventListener('click', () => formTag.style.display="none");
 
+//event listeners for both buttons
+sendBtn.addEventListener('click', checkEmail);
+closeBtn.addEventListener('click', handleFormTag);
+
+//handle the showing and hiding of the form tag
+function handleFormTag(event){
+  const formTag = document.getElementById('form');
+  formTag.classList.toggle('hide');
+};
+
+//validates the user input when the sendBtn is pressed, shows an output
 function checkEmail(event){
   const outputTag = document.getElementById('output');
-
   const emailInput = document.querySelector('input[name="email"]');
   const email = emailInput.value.split('@');
 
@@ -120,49 +130,55 @@ function checkEmail(event){
     outputTag.textContent = `Thank you ${nameInput.value} for suggesting ${textArea.value}`;
   } else{
     outputTag.textContent = "Suggestions from Dawsonites only!";
+    console.log('asd');
   }
 }
 
-function handleSugg(event){
-  formTag.style.display = "block";
-}
-
+//changes the cursor and waits to simulate loading
 function handleConsole(event){
 	document.body.style.cursor = 'wait';
 	setTimeout(showConsole, 5000);
 }
 
+//shows the console image and calls printLines
 function showConsole(){
 	consoleTag.style.display = "block";
 	document.body.style.cursor = 'default';
 
-	printLines(consoleTextTag, terminalText)
-		.then(() => setTimeout(changeScreen, 1000));
+	printLines();
 }
 
 
-async function printLines(tag, text){
-	for(let i=0; i<text.length; i++){
-		tag.textContent += text[i];
-		tag.scrollTop = tag.scrollHeight;
-
-		await new Promise(resolve => setTimeout(resolve, 50));
+//prints lines of text in a tag
+function printLines(text){
+	const textSpeed = 50;
+  for(let i=0; i<terminalText.length; i++){
+		setTimeout(() =>{
+      consoleTextTag.textContent += terminalText[i];
+	    consoleTextTag.scrollTop = consoleTextTag.scrollHeight;
+    }, textSpeed * i);
 	}
+  setTimeout(changeScreen, textSpeed * terminalText.length);
 }
 
-
+//changes the screen displat and calls print text
 function changeScreen(){
 	screen1.style.display = 'none';
 	screen2.style.display = 'flex';
 	document.body.style.backgroundColor = "black";
-
-	printText(instTag, inst)
-		.then(() => instTag.insertAdjacentHTML("beforeend", `<a href="pages/intro.html" id="link"> >START GAME? </a>`));
+	printText(instTag, inst);
 }
 
-async function printText(tag, text){
-	for(let i=0; i<text.length;i++){
-		tag.textContent += text[i];
-		await new Promise(resolve => setTimeout(resolve, 20));
+//makes an anchor tag and places it in the html
+function insertLink(){
+  instTag.insertAdjacentHTML("beforeend", `<a href="pages/intro.html" id="link"> >START GAME? </a>`);
+}
+
+//prints each character individually in a tag
+function printText(){
+  const textSpeed = 50;
+	for(let i=0; i<inst.length;i++){
+		setTimeout(() => instTag.textContent += inst[i], textSpeed * i);
 	}
+  setTimeout(insertLink, textSpeed * inst.length);
 }
