@@ -10,3 +10,6 @@ On Git: There is the main branch which will contain clean and reviewed code and 
 When implementing a new feature and testing it, create another branch from the dev branch and work it on there
 -- then as for a pull from the testing branch to the dev branch where it can be reviewed / merge conflicts fixed.
 Once its pulled, delete the feature branch.
+
+--- mr.kanis ---
+-- the pupose of my project is tu study how backend work with frotend and also create one intersting arg 
