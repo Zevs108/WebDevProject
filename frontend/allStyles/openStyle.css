@@ -1,0 +1,78 @@
+body{
+	font: normal 18pt "Press Start 2P", system-ui;
+
+    background-color: black;	
+    color: white;
+
+	margin: 0;	
+	height: 100%;
+}
+
+header{
+	font-size: 2rem;
+	text-align: center;
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	height: 100vh;
+}
+
+
+div#dayScreen{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	font-size: 3em;
+}
+
+div#image{
+	background-image: url("../OpenAssets/1_blackScreen.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	height: 80vh;
+	width: 100vw;
+
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+}
+
+div#text{
+	padding: 50px;
+	font-size: 1.5rem;
+}
+
+div#text.blackScreenStyle{
+	font-size: 4rem;
+	text-decoration: underline;
+}
+
+.choice{
+	display: none;
+}
+
+button {
+    padding: 10px 20px;
+
+    color: white;
+    background-color: #111;
+    border: 2px solid white;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+button:hover {
+    background-color: white;
+    color: #111;
+}

@@ -1,0 +1,27 @@
+body{
+	font: normal 400 "Press Start 2P", system-ui;
+    background-color: black;	
+    color: white;
+	margin: 0;
+	
+}
+#screen {
+    background-image: url(../assets/ignore1.jpg);
+    background-size: cover;
+	background-repeat: no-repeat;
+    height: 80vh;
+    width: 100vw;
+}
+#dialogue {
+    background-color: black;
+    height: 145px;
+}
+#words {
+    font-size: 40pt;
+}
+#reminder {
+    color: gray;
+}
+.continue {
+    display: none;
+}

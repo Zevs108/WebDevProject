@@ -1,0 +1,141 @@
+:root{
+	font: normal 10pt "Press Start 2P", system-ui;
+    color: white;	
+}
+
+body{
+	margin: 0;
+	height: 100vh;
+}
+
+/*The backgrounds for windows and noise screen*/
+.screen1{
+	background-image: url("../indexAssets/windows.jpg");
+	background-size: 100vw 100vh;
+
+	height: 100vh;
+
+	display: block;
+}
+.screen2{
+	display: none;
+
+	/*center the #inst text*/
+	justify-content: center;
+	align-items: center;
+}
+
+#taskBar{
+	background-image: url("../indexAssets/taskBar.png");
+	background-size: 100% 100%;
+	
+	width: 100%;
+	height: 60px;
+	
+	position: fixed;
+	bottom: 0;
+}
+
+.icon{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    gap: 6px;
+
+    font-size: 0.8rem;
+    
+    width: 100px;
+    padding: 6px 4px;
+}
+#logoIcon{
+    /*position in the middle*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#refIcon{
+    /*position on the left*/
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+#hornetIcon{
+    /*position on the left*/
+    position: absolute;
+    top: 70%;
+    left: 70%;
+}
+
+#link{
+	font-size: 2rem;
+	color: white;
+	text-decoration: underline;;
+}
+
+#link:hover{
+	color: blue;
+}
+
+#inst{
+	/*position in the middle*/
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    white-space: pre-wrap;
+}
+
+#console{
+	background-image: url("../indexAssets/console.png");
+	background-size: 100% 100%;
+	
+	width: 60%;
+	height: 60%;
+	
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	
+	display: none;
+}
+
+#consoleText{
+	height: 90%;
+	
+	overflow: scroll;
+	white-space: pre-wrap;
+}
+
+.selected {
+	background-color: rgba(0, 120, 215, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hide{
+	display: none;
+}
+
+@media (max-width: 1200px){
+	#taskBar{
+		background-image: url("../indexAssets/taskBarSmall.png");
+	}
+}
+@media (max-width: 600px){
+	#taskBar{
+		display: none;
+	}
+	.screen1{
+		background-image: url("../indexAssets/phoneBg.jpg");
+	}
+	#logoIcon{
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    transform: none;
+	}
+}
