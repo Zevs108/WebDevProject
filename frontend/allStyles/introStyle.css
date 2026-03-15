@@ -1,9 +1,10 @@
-body{
-	font: normal 400 "Press Start 2P", system-ui;
-    background-color: black;	
+body {
+    font:
+        normal 400 "Press Start 2P",
+        system-ui;
+    background-color: black;
     color: white;
-	margin: 0;
-	
+    margin: 0;
 }
 #screen {
     background-image: url(../IntroAssets/1_bed.jpg);
@@ -37,23 +38,32 @@ a:visited {
     text-decoration: none;
 }
 h1 {
-    display: inline-block; 
+    display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid #333; 
-    animation: 
-        typing 2s steps(18) forwards, 
+    border-right: 2px solid #333;
+    animation:
+        typing 2s steps(18) forwards,
         blink-cursor 0.4s step-end infinite alternate;
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes blink-cursor {
-    from, to { border-right-color: black; }
-    50% { border-right-color: white; }
+    from,
+    to {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: white;
+    }
 }
 button {
     width: 180px;
@@ -67,4 +77,3 @@ fieldset {
     background-color: white;
     align-items: start;
 }
-

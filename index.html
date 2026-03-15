@@ -1,43 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="allStyles/indexStyle.css">
-        <link rel="stylesheet" href="allStyles/form.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./frontend/allStyles/indexStyle.css" />
+        <link rel="stylesheet" href="./frontend/allStyles/form.css" />
         <!--get the correct fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
 
         <title>DAWSON STORY</title>
-        <script src="allScripts/indexScript.js" defer></script>
+        <script src="./frontend/allScripts/indexScript.js" defer></script>
     </head>
     <body>
         <!--windows simulation-->
-		<div class="screen1">
-			<div class="icon" id="logoIcon">
-				<img src="indexAssets/smallerLogo.png" alt="logo">
-				CLICK_ME.exe
-			</div>
-
+        <div class="screen1">
+            <div class="icon" id="logoIcon">
+                <img src="./frontend/indexAssets/smallerLogo.png" alt="logo" />
+                CLICK_ME.exe
+            </div>
 
             <div class="icon" id="refIcon">
-                <img src="indexAssets/hollowknightSmall.jpg" alt="reference">
+                <img
+                    src="./frontend/indexAssets/hollowknightSmall.jpg"
+                    alt="reference"
+                />
                 Suggestion Box
             </div>
-            
+
             <!-- This code here is for the interaction 1 assignement -->
             <fieldset id="form" class="hide">
                 <legend>Suggestion Box</legend>
                 <ul>
                     <li>
                         <label for="name">Name: </label>
-                        <input type="text" name="name" id="name">
+                        <input type="text" name="name" id="name" />
                     </li>
                     <li>
                         <label for="email">Email: </label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" />
                     </li>
                     <li>
                         <label for="suggText">Suggestion: </label>
@@ -48,27 +53,30 @@
                         <button id="close">Close</button>
                     </li>
                 </ul>
-                <h3 id='output'>&nbsp;</h3>
+                <h3 id="output">&nbsp;</h3>
             </fieldset>
 
             <!-- hornet image -->
             <div class="icon" id="hornetIcon">
-                <img src="indexAssets/hornetSmall.jpg" alt="reference">
+                <img
+                    src="./frontend/indexAssets/hornetSmall.jpg"
+                    alt="reference"
+                />
                 SilkSong.exe
             </div>
-            
+
             <!-- console image -->
-			<div id="console">
-				<p id="consoleText"></p>
-			</div>
+            <div id="console">
+                <p id="consoleText"></p>
+            </div>
 
             <!--image at the bottom-->
-			<div id="taskBar"></div>
-		</div>
+            <div id="taskBar"></div>
+        </div>
 
         <!--black screen with instructions-->
-		<div class="screen2">
-			<p id ="inst"></p>
-		</div>
+        <div class="screen2">
+            <p id="inst"></p>
+        </div>
     </body>
 </html>
